@@ -115,9 +115,9 @@
                   <th data-sort-table="withdraw" data-sort-key="bank">Bank</th>
                   <th data-sort-table="withdraw" data-sort-key="id">ID</th>
                   <th></th>
-                  <th data-sort-table="withdraw" data-sort-key="amount">Amount</th>
+                  <th data-sort-table="withdraw" data-sort-key="amount">Nominal</th>
                   <th data-sort-table="withdraw" data-sort-key="name">Name</th>
-                  <th data-sort-table="withdraw" data-sort-key="reff">Ref Number</th>
+                  <th data-sort-table="withdraw" data-sort-key="reff">Reff Number</th>
                 </tr>
               </thead>
               <tbody id="withdrawTableBody"></tbody>
@@ -211,8 +211,8 @@
           </label>
 
           <div class="actions hidden" id="depositActions">
-            <button class="btn success" id="copyDepositIdAmountBtn">COPY ID AMOUNT</button>
-            <button class="btn success" id="copyDepositRefBtn">COPY REF NUMBER</button>
+            <button class="btn success" id="copyDepositIdAmountBtn">ID & NOMINAL</button>
+            <button class="btn success" id="copyDepositRefBtn">REFF NUMBER</button>
             <button class="btn danger text-red" id="clearDepositBtn">CLEAR ALL</button>
           </div>
 
@@ -226,8 +226,8 @@
               <thead>
                 <tr>
                   <th data-sort-table="deposit" data-sort-key="id">ID</th>
-                  <th data-sort-table="deposit" data-sort-key="amount">Amount</th>
-                  <th data-sort-table="deposit" data-sort-key="refNumb">Ref Number</th>
+                  <th data-sort-table="deposit" data-sort-key="amount">JUMLAH</th>
+                  <th data-sort-table="deposit" data-sort-key="refNumb">REFF NUMBER</th>
                 </tr>
               </thead>
               <tbody id="depositTableBody"></tbody>
@@ -334,7 +334,7 @@
         <div class="card glass">
           <label class="upload-box compact">
             <input type="file" id="cashbackFile" accept=".csv" />
-            <span>PILIH FILE CSV</span>
+            <span>PILIH FILE TRANSAKSI LENGKAP</span>
           </label>
 
           <div class="actions hidden" id="cashbackActions">
