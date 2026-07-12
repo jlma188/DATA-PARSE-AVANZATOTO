@@ -539,5 +539,32 @@
   <script src="./app.js"></script>
   <script src="./compare-feature.js"></script>
 </body>
+<script>
+    // 1. Mencegah Klik Kanan
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
 
+    // 2. Mencegah pintasan keyboard (F12, Ctrl+Shift+I, Ctrl+U, dll)
+    document.addEventListener('keydown', function(e) {
+      // F12
+      if (e.keyCode === 123) {
+        e.preventDefault();
+      }
+      // Ctrl + Shift + I atau J
+      if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) {
+        e.preventDefault();
+      }
+      // Ctrl + U (View Source)
+      if (e.ctrlKey && e.keyCode === 85) {
+        e.preventDefault();
+      }
+      // Ctrl + S (Save Page)
+      if (e.ctrlKey && e.keyCode === 83) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
 </html>
