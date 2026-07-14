@@ -540,36 +540,35 @@
   <script src="./compare-feature.js"></script>
 </body>
 <script>
-    // Fungsi untuk menampilkan pesan peringatan
     function tampilkanPeringatan() {
-        alert("Akses dilarang! MOHON MAAF YA KONTOL, PANEL INI TIDAK MEMENUHI AKTIVITAS YANG KAMU LAKUKAN, SILAHKAN DI REFRESH KEMBALI.");
+        alert("Akses dilarang! Panel ini tidak mengizinkan aktivitas tersebut. Silakan refresh halaman.");
     }
 
     // 1. Mencegah Klik Kanan
-    document.addEventListener('contextmenu', function(e) {
+    document.addEventListener('contextmenu', (e) => {
         e.preventDefault();
         tampilkanPeringatan();
     });
 
     // 2. Mencegah pintasan keyboard
-    document.addEventListener('keydown', function(e) {
-        // F12
-        if (e.keyCode === 123) {
+    document.addEventListener('keydown', (e) => {
+        // F12 (key: F12)
+        if (e.key === 'F12') {
             e.preventDefault();
             tampilkanPeringatan();
         }
-        // Ctrl + Shift + I atau J (Inspect/Console)
-        if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) {
+        // Ctrl + Shift + I atau J
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) {
             e.preventDefault();
             tampilkanPeringatan();
         }
-        // Ctrl + U (View Source)
-        if (e.ctrlKey && e.keyCode === 85) {
+        // Ctrl + U
+        if (e.ctrlKey && e.key === 'u') {
             e.preventDefault();
             tampilkanPeringatan();
         }
-        // Ctrl + S (Save Page)
-        if (e.ctrlKey && e.keyCode === 83) {
+        // Ctrl + S
+        if (e.ctrlKey && e.key === 's') {
             e.preventDefault();
             tampilkanPeringatan();
         }
