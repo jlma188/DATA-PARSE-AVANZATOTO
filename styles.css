@@ -981,3 +981,58 @@ body[data-theme="light"] tbody tr:hover {
     padding: 12px 14px;
   }
 }
+/* --- OVERLAY PERINGATAN ELEGANT --- */
+#full-screen-warning {
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+    z-index: 999999; 
+    text-align: center; 
+    font-family: 'Inter', sans-serif;
+    color: var(--custom-accent);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid var(--custom-accent);
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+}
+
+.show-overlay { display: flex !important; animation: fadeIn 0.5s ease-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.gold-title { 
+    font-size: 3rem; 
+    letter-spacing: 6px; 
+    text-transform: uppercase; 
+    margin-bottom: 15px; 
+    text-shadow: 0 0 15px rgba(var(--custom-accent-rgb), 0.5); 
+}
+
+.gold-desc { 
+    font-size: 1.1rem; 
+    color: #e0e0e0; 
+    margin-bottom: 35px; 
+    max-width: 500px; 
+    padding: 0 20px; 
+}
+
+.btn-gold {
+    padding: 14px 35px; 
+    background: transparent; 
+    color: var(--custom-accent); 
+    border: 2px solid var(--custom-accent); 
+    font-size: 1rem; 
+    font-weight: 700;
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 12px;
+}
+.btn-gold:hover { 
+    background: var(--custom-accent); 
+    color: #000; 
+    box-shadow: 0 0 20px rgba(var(--custom-accent-rgb), 0.4); 
+}
