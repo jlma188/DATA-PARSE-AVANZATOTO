@@ -540,31 +540,39 @@
   <script src="./compare-feature.js"></script>
 </body>
 <script>
+    // Fungsi untuk menampilkan pesan peringatan
+    function tampilkanPeringatan() {
+        alert("Akses dilarang! MOHON MAAF YA KONTOL, PANEL INI TIDAK MEMENUHI AKTIVITAS YANG KAMU LAKUKAN, SILAHKAN DI REFRESH KEMBALI.");
+    }
+
     // 1. Mencegah Klik Kanan
     document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
+        e.preventDefault();
+        tampilkanPeringatan();
     });
 
-    // 2. Mencegah pintasan keyboard (F12, Ctrl+Shift+I, Ctrl+U, dll)
+    // 2. Mencegah pintasan keyboard
     document.addEventListener('keydown', function(e) {
-      // F12
-      if (e.keyCode === 123) {
-        e.preventDefault();
-      }
-      // Ctrl + Shift + I atau J
-      if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) {
-        e.preventDefault();
-      }
-      // Ctrl + U (View Source)
-      if (e.ctrlKey && e.keyCode === 85) {
-        e.preventDefault();
-      }
-      // Ctrl + S (Save Page)
-      if (e.ctrlKey && e.keyCode === 83) {
-        e.preventDefault();
-      }
+        // F12
+        if (e.keyCode === 123) {
+            e.preventDefault();
+            tampilkanPeringatan();
+        }
+        // Ctrl + Shift + I atau J (Inspect/Console)
+        if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) {
+            e.preventDefault();
+            tampilkanPeringatan();
+        }
+        // Ctrl + U (View Source)
+        if (e.ctrlKey && e.keyCode === 85) {
+            e.preventDefault();
+            tampilkanPeringatan();
+        }
+        // Ctrl + S (Save Page)
+        if (e.ctrlKey && e.keyCode === 83) {
+            e.preventDefault();
+            tampilkanPeringatan();
+        }
     });
-  </script>
-</body>
-</html>
+</script>
 </html>
