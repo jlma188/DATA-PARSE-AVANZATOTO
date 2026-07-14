@@ -578,6 +578,41 @@
             }
         });
     </script>
+  <div id="full-screen-warning">
+        <h1 class="gold-title">Akses Dibatasi</h1>
+        <p class="gold-desc">Sistem keamanan mendeteksi upaya akses yang tidak sah. Harap segarkan halaman untuk melanjutkan.</p>
+        <button class="btn-gold" onclick="location.reload()">Refresh Halaman</button>
+    </div>
+
+    <script>
+        function tampilkanPeringatan() {
+            document.getElementById('full-screen-warning').classList.add('show-overlay');
+        }
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            tampilkanPeringatan();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (
+                e.key === 'F12' || 
+                (e.ctrlKey && (e.key === 'u' || e.key === 's')) || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J'))
+            ) {
+                e.preventDefault();
+                tampilkanPeringatan();
+            }
+        });
+    </script>
+</body> ```
+
+### Tips Tambahan:
+* Jika Anda memiliki file JavaScript terpisah (misalnya `app.js`), Anda bisa saja memasukkan kode tersebut ke dalam file `app.js`. Namun, jika Anda memasukkannya ke dalam file terpisah, pastikan file tersebut di-*load* dengan atribut `defer` agar skrip tidak berjalan sebelum elemen HTML `full-screen-warning` selesai dimuat:
+  `<script src="./app.js" defer></script>`
+* Jika Anda menaruhnya langsung di dalam HTML (seperti contoh di atas), posisi **sebelum `</body>`** adalah yang paling aman agar fungsi `getElementById` tidak gagal.
+
+Apakah kodenya sudah berhasil muncul di layar saat Anda mencoba menekan F12 sekarang?
 </body>
 </body> ```
 
