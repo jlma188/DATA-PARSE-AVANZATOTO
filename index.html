@@ -537,42 +537,46 @@
   </div>
 
   <script src="./app.js"></script>
-  <script src="./compare-feature.js"></script>
-</body>
-  <div id="full-screen-warning" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; color: white; z-index: 99999; text-align: center; padding-top: 20%; font-family: sans-serif;">
-    <h1>AKSES DILARANG!</h1>
-    <p>Panel ini tidak mengizinkan aktivitas tersebut. Silakan refresh halaman.</p>
-    <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer; font-size: 16px;">Refresh Halaman</button>
-</div>
+    <script src="./compare-feature.js"></script>
 
-<script>
-    function tampilkanPeringatan() {
-        document.getElementById('full-screen-warning').style.display = 'block';
-    }
-    
-    // ... lanjutkan dengan event listener Anda
-</script>
-<script>
-    function tampilkanPeringatan() {
-        // Menampilkan elemen overlay yang tadi dibuat
-        document.getElementById('full-screen-warning').style.display = 'block';
-    }
+    <div id="full-screen-warning" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; color: white; z-index: 99999; text-align: center; padding-top: 20%; font-family: sans-serif;">
+        <h1>AKSES DILARANG!</h1>
+        <p>Panel ini tidak mengizinkan aktivitas tersebut. Silakan refresh halaman.</p>
+        <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer; font-size: 16px;">Refresh Halaman</button>
+    </div>
 
-    // Fungsi pencegah tetap sama, namun memanggil fungsi baru di atas
-    document.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        tampilkanPeringatan();
-    });
+    <script>
+        function tampilkanPeringatan() {
+            document.getElementById('full-screen-warning').style.display = 'block';
+        }
 
-    document.addEventListener('keydown', (e) => {
-        if (
-            e.key === 'F12' || 
-            (e.ctrlKey && (e.key === 'u' || e.key === 's')) || 
-            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C'))
-        ) {
+        // 1. Mencegah Klik Kanan
+        document.addEventListener('contextmenu', (e) => {
             e.preventDefault();
             tampilkanPeringatan();
-        }
-    });
-</script>
+        });
+
+        // 2. Mencegah pintasan keyboard
+        document.addEventListener('keydown', (e) => {
+            if (
+                e.key === 'F12' || 
+                (e.ctrlKey && (e.key === 'u' || e.key === 's')) || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J'))
+            ) {
+                e.preventDefault();
+                tampilkanPeringatan();
+            }
+        });
+    </script>
+</body> ```
+
+### Apa yang diperbaiki?
+* **Struktur:** Memindahkan `div` overlay ke **sebelum** `</body>`. Browser akan mengabaikan elemen apa pun yang ditaruh setelah tag `</body>`.
+* **Penyatuan Skrip:** Menghapus duplikasi fungsi `tampilkanPeringatan` agar kode lebih ringan dan tidak error.
+* **Penambahan Pemicu:** Menambahkan `e.key === 'J'` di bagian `Ctrl+Shift` untuk menangkap pintasan *Console* yang sering digunakan untuk *inspect*.
+
+**Tips Tambahan:**
+Jika setelah menggunakan kode di atas masih terasa "tidak berfungsi", pastikan file Anda **disimpan (save)** dan lakukan **Hard Refresh** pada *browser* (tekan `Ctrl + F5` atau `Cmd + Shift + R` di keyboard) untuk memastikan *browser* memuat versi terbaru dari kode Anda, bukan menyimpan *cache* yang lama.
+
+Apakah sekarang saat Anda menekan tombol F12 atau melakukan klik kanan, layar sudah berubah menjadi hitam dengan pesan tersebut?
 </html>
